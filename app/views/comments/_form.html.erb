@@ -1,0 +1,32 @@
+<%= form_with(model: comment, local: true) do |form| %>
+  <% if comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <%= form_for @comment, url: {action: "create"}, html: {class: "col-md-6"} do |f| %>
+    <div class='form-group'>
+     <%= f.text_field :author, placeholder: 'jannot', class:'form-control'  %>
+    </div> 
+
+     <div class='form-group'>
+     <%= f.text_field :content, placeholder: 'blabla', class: 'form-control' %>
+    </div>
+    <div class='form-group'>
+        <button class="btn ntn-primary"type= "submit">Créer un Commentaire</button>
+    </div>
+
+<% end -%>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

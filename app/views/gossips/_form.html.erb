@@ -1,0 +1,31 @@
+<%= form_with(model: gossip, local: true) do |form| %>
+  <% if gossip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gossip.errors.count, "error") %> prohibited this gossip from being saved:</h2>
+
+      <ul>
+      <% gossip.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for @gossip, url: {action: "create"}, html: {class: "col-md-6"} do |f| %>
+    <div class='form-group'>
+     <%= f.text_field :author, placeholder: 'jannot', class:'form-control'  %>
+    </div> 
+
+     <div class='form-group'>
+     <%= f.text_field :content, placeholder: 'blabla', class: 'form-control' %>
+    </div>
+    <div class='form-group'>
+        <button class="btn ntn-primary"type= "submit">Créer un Gossip</button>
+    </div>
+
+<% end -%>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
