@@ -6,15 +6,14 @@ class UsersController < ApplicationController
 
 	def create 
 
-		user_params = params.require(:user).permit(:username, :email, :password, :password_confirmation)
+		user_params = params.require(:user).permit(:username, :password)
 
-		puts @user = User.new(user_params)
-		
-		if @user.valid?
-			render'new'
-
-		else
-			render'new'
-		end
+		@user = User.create(user_params)
+    redirect_to (root_path)
 	end
+
+  def index
+    @users = User.all
+  end
 end
+	

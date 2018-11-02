@@ -1,0 +1,13 @@
+
+
+
+<% if @current_user %>
+  <h1>Bienvenue <%= @current_user.name %> !</h1>
+  <%= form_tag "/users/login", method: :delete do %>
+    <input type="submit" value="Déconnexion" />
+  <% end %>
+<% else %>
+  <br><h1>Bienvenue, l'ami (e) !</h1>
+  <br><h4>Wanna join the club ? </h4>
+  <a href="/users/login">S'identifier</a>
+<% end %>

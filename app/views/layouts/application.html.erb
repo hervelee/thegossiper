@@ -8,25 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
    
   </head>
-
+  <%= render "layouts/header" %>
   <body>
-    <div class="navbar navbar-inverse">
-      <div class="container">
+  
+</div>
 
-        <div class="navbar-header">
-
-          <%=link_to('TheGossiper',root_path, class:"navbar-brand")%>
-
-        </div>
-          <ul class='nav navbar-nav navbar-right'>
-            <li><a href="<%new_user_path%>">S'inscrire</a></li>
-            <li><a href="">Se connecter</a></li>
-          </ul>
-      </div>
-
-    </div>
-
+   
     <div class="container">
+      <%=flash[:info]%>
       <%= yield %>
     </div>
     

@@ -1,0 +1,17 @@
+<h1>Se connecter</h1>
+<form action="/registration/create" method="post" class="col-lg-6">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="form-group">
+    <label>Pseudo</label>
+    <input type="text" name="Pseudo" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Mot de passe</label>
+    <input type="text" name="password" placeholder="******" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <input type="submit" class="btn btn-primary" value="Connexion">
+  </div>
+</form>
