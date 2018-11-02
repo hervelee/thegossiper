@@ -5,11 +5,16 @@ class UsersController < ApplicationController
 	end 
 
 	def create 
+		puts   "----------------------------------------"
 
 		user_params = params.require(:user).permit(:username, :password)
 
 		@user = User.create(user_params)
-    redirect_to (root_path)
+puts @user
+
+puts   "----------------------------------------"
+
+    redirect_to (gossips_path)
 	end
 
   def index
