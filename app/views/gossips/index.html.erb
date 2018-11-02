@@ -39,7 +39,7 @@
             <%= gossip.likes.count %> 
             <% if @current_user == nil%>
               <%= image_tag("Facebook-Like-grey.png", :alt => "likes", :style => "width: 30px;") %>
-            <% elsif gossip.likes.where(user_id: @current_user.id).first%>
+            <% elsif gossip.likes.where(user_id: @current_user)%>
               <a href="/gossips/<%= gossip.id %>/like/destroy">
                 <%= image_tag("Facebook-Like.png", :alt => "likes", :style => "width: 30px;") %>
               </a>

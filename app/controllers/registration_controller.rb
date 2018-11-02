@@ -3,14 +3,17 @@ class RegistrationController < ApplicationController
   end
 
   def create
-    @user_current = User.where(username: params[:name], password: params[:password]).first
+    puts   "----------------------------------------"
+    @user_current = User.where(username: params[:pseudo], password: params[:password])
     ApplicationController.set_session(@user_current)
+puts @user_current
+    puts   "----------------------------------------"
     if @user_current
-      session[:user_id] = @current_user.id
+     
       flash[:info] = "Vous êtes maintenant connecté"
       redirect_to(gossips_path)
     else
-      session[:user_id] = nil
+      
       flash[:info] = "Échec de la connexion"	
       redirect_to(invalid_login_password_path)
     end
@@ -24,10 +27,5 @@ class RegistrationController < ApplicationController
   end
 
 end
-def home
-    if session[:user_id]
-      @current_user = User.find(session[:user_id])
-    end
- end
 
   

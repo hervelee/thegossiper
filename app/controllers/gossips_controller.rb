@@ -6,6 +6,8 @@ class GossipsController < ApplicationController
 
 
   def show
+    @gossip = Gossip.find(params[:id])
+    @comments = @gossip.comments.order(:created_at)
   end
 
 
@@ -24,7 +26,7 @@ class GossipsController < ApplicationController
 
  
   def create
-    @gossip = Gossip.new(gossip_params)
+    @gossip = Gossip.create(gossip_params)
     redirect_to(gossip_path(gossip.id))
   end
 
@@ -50,8 +52,6 @@ class GossipsController < ApplicationController
   
       def gossip_params
         result = params.require(:gossip).permit(:content, :author)
-        result[:user_id] = @current_user.id
-        return result
       end
   end
 

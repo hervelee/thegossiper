@@ -14,7 +14,7 @@ puts @user
 
 puts   "----------------------------------------"
 
-    redirect_to (gossips_path)
+    redirect_to (root_path)
 	end
 
   def index
